@@ -1,0 +1,1851 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>التحقق من تصريح أجير</title>
+
+
+    <style>
+
+        /* =====================================================
+           FONTS
+        ===================================================== */
+
+        @font-face {
+            font-family: 'FrutigerArabic';
+            src: url('/fonts/frutiger-lt-arabic-55-roman.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'FrutigerArabic';
+            src: url('/fonts/Frutiger LT Arabic 65 Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'FrutigerLight';
+            src: url('/fonts/frutiger-lt-arabic-45-light.ttf') format('truetype');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+
+        /* =====================================================
+           GENERAL
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+
+            background: #ffffff;
+            color: #202326;
+
+            font-family:
+                'FrutigerArabic',
+                Tahoma,
+                Arial,
+                sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 1180px;
+
+            margin: 0 auto;
+
+            padding:
+                6px
+                28px
+                30px;
+        }
+
+
+        /* =====================================================
+           NON OFFICIAL NOTICE
+        ===================================================== */
+
+        .independent-notice {
+            width: 100%;
+
+            margin-bottom: 5px;
+
+            padding:
+                6px
+                10px;
+
+            border: 1px solid #dfe4e2;
+
+            background: #f7faf9;
+
+            color: #65706d;
+
+            text-align: center;
+
+            font-family: 'FrutigerLight';
+
+            font-size: 10.5px;
+        }
+
+
+        /* =====================================================
+           LOGO GENERAL
+
+           مهم:
+           كل أحجام اللوجوهات موجودة في مكان واحد فقط.
+           مفيش مقاسات منفصلة للموبايل.
+        ===================================================== */
+
+        .logo-img {
+            display: block;
+
+            height: auto;
+
+            max-width: 100%;
+
+            object-fit: contain;
+        }
+
+
+        /* =====================================================
+           LOGO 1 SIZE
+           عدّل width فقط
+        ===================================================== */
+
+        .logo-1 {
+            width: 70px;
+        }
+
+
+        /* =====================================================
+           LOGO 2 SIZE
+           عدّل width فقط
+        ===================================================== */
+
+        .logo-2 {
+            width: 85px;
+        }
+
+
+        /* =====================================================
+           LOGO 3 SIZE
+           عدّل width فقط
+        ===================================================== */
+
+        .logo-3 {
+            width: 100px;
+        }
+
+
+        /* =====================================================
+           LOGO 4 SIZE
+           عدّل width فقط
+        ===================================================== */
+
+        .logo-4 {
+            width: 150px;
+        }
+
+
+        /* =====================================================
+           LOGO 5 SIZE
+           FOOTER RIGHT - TOP
+           عدّل width فقط
+        ===================================================== */
+
+        .logo-5 {
+            width: 250px;
+        }
+
+
+        /* =====================================================
+           LOGO 6 SIZE
+           FOOTER RIGHT - MIDDLE
+           عدّل width فقط
+        ===================================================== */
+
+        .logo-6 {
+            width: 250px;
+        }
+
+
+        /* =====================================================
+           LOGO 7 SIZE
+           FOOTER RIGHT - BOTTOM
+           عدّل width فقط
+        ===================================================== */
+
+        .logo-7 {
+            width: 300px;
+        }
+
+
+        /* =====================================================
+           LOGO 8 SIZE
+           FOOTER LEFT
+           عدّل width فقط
+        ===================================================== */
+
+        .logo-8 {
+            width: 250px;
+        }
+
+
+        /* =====================================================
+           TOP HEADER
+        ===================================================== */
+
+        .top-header {
+            width: 100%;
+
+            min-height: 55px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                10px
+                1fr;
+
+            align-items: center;
+
+            padding:
+                2px
+                4px
+                5px;
+
+            margin-bottom: 4px;
+
+            border-bottom:
+                1px solid
+                #d5d9d8;
+        }
+
+        .top-logo-right,
+        .top-logo-left {
+            min-height: 46px;
+
+            display: flex;
+
+            align-items: center;
+        }
+
+        .top-logo-right {
+            justify-content: flex-start;
+        }
+
+        .top-logo-left {
+            justify-content: flex-end;
+        }
+
+
+        /* =====================================================
+           VERIFICATION CARD
+        ===================================================== */
+
+        .verification-card {
+            width: 100%;
+
+            border:
+                1px solid
+                #d1d5d4;
+
+            background: #ffffff;
+        }
+
+
+        /* =====================================================
+           MAIN LOGOS
+        ===================================================== */
+
+        .main-logos {
+            min-height: 75px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 38px;
+
+            padding:
+                6px
+                14px;
+
+            border-bottom:
+                1px solid
+                #d6dad9;
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .verification-title {
+            min-height: 52px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                7px
+                15px;
+
+            border-bottom:
+                1px solid
+                #d6dad9;
+
+            color: #171a1b;
+
+            font-size: 22px;
+
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
+
+        .status-area {
+            min-height: 43px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 5px;
+
+            border-bottom:
+                1px solid
+                #d6dad9;
+
+            font-size: 16px;
+        }
+
+        .status-active {
+            color: #14765e;
+        }
+
+        .status-expiring {
+            color: #9c710b;
+        }
+
+        .status-expired {
+            color: #af4141;
+        }
+
+        .status-cancelled {
+            color: #9e4141;
+        }
+
+        .status-archived {
+            color: #71787b;
+        }
+
+
+        /* =====================================================
+           MESSAGE
+        ===================================================== */
+
+        .verification-message {
+            min-height: 48px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                8px
+                15px;
+
+            color: #777d7e;
+
+            font-family: 'FrutigerLight';
+
+            font-size: 14px;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           DATA SECTION
+        ===================================================== */
+
+        .data-section {
+            margin:
+                0
+                9px
+                10px;
+
+            border:
+                1px solid
+                #d2d7d5;
+
+            background: #ffffff;
+        }
+
+
+        /* =====================================================
+           SECTION TITLE
+        ===================================================== */
+
+        .section-title {
+            min-height: 44px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding:
+                8px
+                16px;
+
+            border-bottom:
+                1px solid
+                #d2d7d5;
+
+            background: #f1f3f2;
+
+            color: #191d1e;
+
+            font-size: 18px;
+
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           FIELD
+        ===================================================== */
+
+        .field {
+            width: 100%;
+
+            border-bottom:
+                1px solid
+                #d5d9d8;
+        }
+
+        .field:last-child {
+            border-bottom: none;
+        }
+
+
+        /* =====================================================
+           FIELD LABEL
+        ===================================================== */
+
+        .field-label {
+            min-height: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding:
+                6px
+                16px
+                3px;
+
+            background: #f7f8f8;
+
+            color: #858b8c;
+
+            font-family:
+                'FrutigerLight';
+
+            font-size: 13.5px;
+        }
+
+
+        /* =====================================================
+           FIELD VALUE
+        ===================================================== */
+
+        .field-value {
+            min-height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding:
+                3px
+                16px
+                7px;
+
+            background: #ffffff;
+
+            color: #1d2021;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            line-height: 1.5;
+
+            word-break: break-word;
+        }
+
+        .field-value.ltr {
+            direction: ltr;
+
+            justify-content: flex-end;
+
+            text-align: right;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .footer {
+            margin-top: 34px;
+
+            border-top:
+                1px solid
+                #d6dad9;
+
+            background: #ffffff;
+        }
+
+
+        /* =====================================================
+           FOOTER LINKS
+        ===================================================== */
+
+        .footer-links-area {
+            padding:
+                34px
+                15px
+                30px;
+        }
+
+        .footer-links-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 35px;
+        }
+
+        .footer-column {
+            text-align: right;
+        }
+
+        .footer-column-title {
+            margin-bottom: 13px;
+
+            color: #202425;
+
+            font-size: 16px;
+
+            font-weight: 700;
+        }
+
+        .footer-link {
+            display: block;
+
+            margin-bottom: 11px;
+
+            color: #8a8f90;
+
+            font-family:
+                'FrutigerLight';
+
+            font-size: 14px;
+
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           SOCIAL
+        ===================================================== */
+
+        .social-icons {
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            margin-top: 8px;
+        }
+
+        .social-icon {
+            width: 27px;
+            height: 27px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: #202957;
+
+            text-decoration: none;
+        }
+
+        .social-icon svg {
+            width: 22px;
+            height: 22px;
+
+            fill: currentColor;
+        }
+
+
+        /* =====================================================
+           FOOTER LOGOS
+        ===================================================== */
+
+        .footer-logo-section {
+            padding:
+                22px
+                10px;
+
+            border-top:
+                1px solid
+                #d6dad9;
+
+            border-bottom:
+                1px solid
+                #d6dad9;
+        }
+
+        .footer-logo-layout {
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            align-items: stretch;
+        }
+
+
+        /* =====================================================
+           RIGHT SIDE
+           LOGO 5 + LOGO 6 + LOGO 7
+        ===================================================== */
+
+        .footer-right-logos {
+            min-height: 245px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 22px;
+
+            padding:
+                15px
+                20px;
+        }
+
+
+        /* =====================================================
+           LEFT SIDE
+           LOGO 8
+        ===================================================== */
+
+        .footer-left-logo {
+            min-height: 245px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                20px;
+
+            border-right:
+                1px solid
+                #dedfdf;
+        }
+
+
+        /* =====================================================
+           FOOTER NOTE
+        ===================================================== */
+
+        .footer-note {
+            padding:
+                18px
+                10px
+                5px;
+
+            color: #8b9192;
+
+            text-align: center;
+
+            font-family:
+                'FrutigerLight';
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           MOBILE
+           لاحظ: مفيش هنا أي .logo-1 ... .logo-8
+        ===================================================== */
+
+        @media(max-width: 768px) {
+
+            .page {
+                padding:
+                    3px
+                    5px
+                    18px;
+            }
+
+            .independent-notice {
+                margin-bottom: 2px;
+
+                padding:
+                    4px
+                    5px;
+
+                font-size: 9px;
+            }
+
+            .top-header {
+                min-height: 44px;
+
+                grid-template-columns:
+                    1fr
+                    2px
+                    1fr;
+
+                padding:
+                    0
+                    2px
+                    2px;
+
+                margin-bottom: 2px;
+            }
+
+            .top-logo-right,
+            .top-logo-left {
+                min-height: 39px;
+            }
+
+
+            /* MAIN LOGOS */
+
+            .main-logos {
+                min-height: 64px;
+
+                gap: 18px;
+
+                padding:
+                    4px
+                    6px;
+            }
+
+
+            /* TITLE */
+
+            .verification-title {
+                min-height: 45px;
+
+                padding: 6px;
+
+                font-size: 20px;
+            }
+
+
+            /* STATUS */
+
+            .status-area {
+                min-height: 39px;
+
+                padding: 4px;
+
+                font-size: 15px;
+            }
+
+
+            /* MESSAGE */
+
+            .verification-message {
+                min-height: 42px;
+
+                padding:
+                    7px
+                    10px;
+
+                font-size: 12.5px;
+            }
+
+
+            /* DATA */
+
+            .data-section {
+                margin:
+                    0
+                    9px
+                    8px;
+            }
+
+            .section-title {
+                min-height: 40px;
+
+                padding:
+                    6px
+                    12px;
+
+                font-size: 17px;
+            }
+
+            .field-label {
+                min-height: 27px;
+
+                padding:
+                    5px
+                    12px
+                    2px;
+
+                font-size: 12.5px;
+            }
+
+            .field-value {
+                min-height: 35px;
+
+                padding:
+                    3px
+                    12px
+                    6px;
+
+                font-size: 14px;
+            }
+
+
+            /* FOOTER */
+
+            .footer {
+                margin-top: 26px;
+            }
+
+            .footer-links-area {
+                padding:
+                    38px
+                    20px
+                    27px;
+            }
+
+            .footer-links-grid {
+                display: block;
+            }
+
+            .footer-column {
+                width: 100%;
+
+                margin-bottom: 31px;
+
+                text-align: right;
+            }
+
+            .footer-column:last-child {
+                margin-bottom: 0;
+            }
+
+            .footer-column-title {
+                margin-bottom: 9px;
+
+                font-size: 15px;
+            }
+
+            .footer-link {
+                margin-bottom: 10px;
+
+                font-size: 13px;
+            }
+
+            .social-icons {
+                gap: 15px;
+            }
+
+
+            /* FOOTER LOGO LAYOUT */
+
+            .footer-logo-section {
+                padding:
+                    17px
+                    8px;
+            }
+
+            .footer-logo-layout {
+                grid-template-columns:
+                    1fr
+                    1fr;
+            }
+
+            .footer-right-logos {
+                min-height: 225px;
+
+                gap: 17px;
+
+                padding:
+                    10px
+                    8px;
+            }
+
+            .footer-left-logo {
+                min-height: 225px;
+
+                padding:
+                    10px
+                    8px;
+            }
+
+            .footer-note {
+                padding:
+                    16px
+                    8px
+                    4px;
+
+                font-size: 11px;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+           برضه مفيش أي مقاسات لوجوهات هنا
+        ===================================================== */
+
+        @media(max-width: 480px) {
+
+            .page {
+                padding:
+                    3px
+                    4px
+                    17px;
+            }
+
+            .main-logos {
+                gap: 12px;
+            }
+
+            .footer-links-area {
+                padding:
+                    36px
+                    18px
+                    26px;
+            }
+
+            .footer-right-logos,
+            .footer-left-logo {
+                min-height: 215px;
+            }
+
+            .footer-right-logos {
+                gap: 15px;
+            }
+
+        }
+
+    </style>
+
+
+<link rel="stylesheet" href="css/53517bb824b2a00f.css">
+
+</head>
+
+
+<body>
+
+
+
+
+
+<div class="page">
+
+
+    <!-- =====================================================
+         NOTICE
+    ====================================================== -->
+
+
+
+    <!-- =====================================================
+         TOP HEADER
+    ====================================================== -->
+
+    <div class="top-header">
+
+
+        <!-- =================================================
+             LOGO 1
+             FILE: public/images/verify/1.png
+        ================================================== -->
+
+        <div class="top-logo-right">
+
+            <img src="images/5a37e7549a7a731b.png" alt="Logo 1" class="logo-img logo-1">
+
+        </div>
+
+
+
+        <div></div>
+
+
+
+        <!-- =================================================
+             LOGO 2
+             FILE: public/images/verify/2.png
+        ================================================== -->
+
+        <div class="top-logo-left">
+
+            <img src="images/d754d2f4c4a01d12.png" alt="Logo 2" class="logo-img logo-2">
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         VERIFICATION CARD
+    ====================================================== -->
+
+    <div class="verification-card">
+
+
+        <!-- =================================================
+             MAIN LOGOS
+        ================================================== -->
+
+        <div class="main-logos">
+
+
+            <!-- =============================================
+                 LOGO 3
+                 FILE: public/images/verify/3.png
+            ============================================== -->
+
+            <img src="images/eb513586372610e6.png" alt="Logo 3" class="logo-img logo-3">
+
+
+
+            <!-- =============================================
+                 LOGO 4
+                 FILE: public/images/verify/4.png
+            ============================================== -->
+
+            <img src="images/e7f88670765f650b.png" alt="Logo 4" class="logo-img logo-4">
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             TITLE
+        ================================================== -->
+
+        <div class="verification-title">
+
+            التحقق من تصريح أجير
+
+        </div>
+
+
+
+        <!-- =================================================
+             STATUS
+        ================================================== -->
+
+        <div class="status-area status-active">
+
+            ساري / فعال
+
+        </div>
+
+
+
+        <!-- =================================================
+             MESSAGE
+        ================================================== -->
+
+        <div class="verification-message">
+
+            تم التحقق من التصريح بنجاح.
+
+        </div>
+
+
+
+        <!-- =================================================
+             PERMIT DATA
+        ================================================== -->
+
+        <div class="data-section">
+
+
+            <div class="section-title">
+
+                بيانات التصريح
+
+            </div>
+
+
+
+            <div class="field">
+
+                <div class="field-label">
+
+                    رقم التصريح
+
+                </div>
+
+                <div class="field-value ltr">
+
+                    TQ5689031
+
+                </div>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <div class="field-label">
+
+                    نوع التصريح
+
+                </div>
+
+                <div class="field-value">
+
+                    عقد اجير
+
+                </div>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <div class="field-label">
+
+                    تاريخ بداية التصريح
+
+                </div>
+
+                <div class="field-value ltr">
+
+                    2026-11-09
+
+                </div>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <div class="field-label">
+
+                    تاريخ نهاية التصريح
+
+                </div>
+
+                <div class="field-value ltr">
+
+                    2027-05-08
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             WORKER DATA
+        ================================================== -->
+
+        <div class="data-section">
+
+
+            <div class="section-title">
+
+                بيانات العامل
+
+            </div>
+
+
+
+            <div class="field">
+
+                <div class="field-label">
+
+                    اسم العامل
+
+                </div>
+
+                <div class="field-value">
+
+                    فادي بلبل
+
+                </div>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <div class="field-label">
+
+                    رقم الهوية / الإقامة
+
+                </div>
+
+                <div class="field-value ltr">
+
+                    2174090627
+
+                </div>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <div class="field-label">
+
+                    الجنسية
+
+                </div>
+
+                <div class="field-value">
+
+                    سوريا
+
+                </div>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <div class="field-label">
+
+                    المهنة
+
+                </div>
+
+                <div class="field-value">
+
+                    مندوب مبيعات
+
+                </div>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <div class="field-label">
+
+                    الجنس
+
+                </div>
+
+                <div class="field-value">
+
+                    ذكر
+
+                </div>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <div class="field-label">
+
+                    تاريخ الميلاد
+
+                </div>
+
+                <div class="field-value ltr">
+
+                    1990-01-01
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             ESTABLISHMENT DATA
+        ================================================== -->
+
+        <div class="data-section">
+
+
+            <div class="section-title">
+
+                بيانات المنشأة
+
+            </div>
+
+
+
+            <div class="field">
+
+                <div class="field-label">
+
+                    رقم المنشأة
+
+                </div>
+
+                <div class="field-value ltr">
+
+                    1-1496479
+
+                </div>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <div class="field-label">
+
+                    اسم المنشأة
+
+                </div>
+
+                <div class="field-value">
+
+                    موسسة نماذج التميز للمقاولات
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+
+        <!-- =================================================
+             FOOTER LINKS
+        ================================================== -->
+
+        <div class="footer-links-area">
+
+
+            <div class="footer-links-grid">
+
+
+                <div class="footer-column">
+
+                    <div class="footer-column-title">
+
+                        أجير
+
+                    </div>
+
+                    <a href="#" class="footer-link">
+
+                        عن أجير
+
+                    </a>
+
+                    <a href="#" class="footer-link">
+
+                        خدمات أجير
+
+                    </a>
+
+                </div>
+
+
+
+                <div class="footer-column">
+
+                    <div class="footer-column-title">
+
+                        الدعم
+
+                    </div>
+
+                    <a href="#" class="footer-link">
+
+                        الدعم والمساعدة
+
+                    </a>
+
+                    <a href="#" class="footer-link">
+
+                        الأسئلة الشائعة
+
+                    </a>
+
+                </div>
+
+
+
+                <div class="footer-column">
+
+                    <div class="footer-column-title">
+
+                        الشروط والخصوصية
+
+                    </div>
+
+                    <a href="#" class="footer-link">
+
+                        الشروط والأحكام
+
+                    </a>
+
+                    <a href="#" class="footer-link">
+
+                        سياسة الخصوصية
+
+                    </a>
+
+                </div>
+
+
+
+                <div class="footer-column">
+
+                    <div class="footer-column-title">
+
+                        تواصل معنا
+
+                    </div>
+
+
+                    <div class="social-icons">
+
+
+                        <!-- PHONE -->
+
+                        <a href="tel:920011040" class="social-icon" aria-label="Phone">
+
+                            <svg viewBox="0 0 24 24">
+
+                                <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"></path>
+
+                            </svg>
+
+                        </a>
+
+
+
+                        <!-- TELEGRAM -->
+
+                        <a href="mailto:support@ajeer.com.sa" class="social-icon" aria-label="Email">
+
+                            <svg viewBox="0 0 24 24">
+
+                                <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"></path>
+
+                            </svg>
+
+                        </a>
+
+
+
+                        <!-- X -->
+
+                        <a href="https://x.com/AjeerSA" class="social-icon" aria-label="X" target="_blank" rel="noopener noreferrer">
+
+                            <svg viewBox="0 0 24 24">
+
+                                <path d="M18.244 2H21.5l-7.11 8.13L22.75 22h-6.54l-5.12-6.7L5.23 22H1.97l7.6-8.69L1.55 2h6.71l4.63 6.12L18.244 2zm-1.143 18h1.804L7.28 3.895H5.344L17.101 20z"></path>
+
+                            </svg>
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =====================================================
+             FOOTER LOGOS
+        ====================================================== -->
+
+        <div class="footer-logo-section">
+
+
+            <div class="footer-logo-layout">
+
+
+                <!-- =================================================
+                     RIGHT SIDE
+                     LOGO 5 + LOGO 6 + LOGO 7
+                ================================================== -->
+
+                <div class="footer-right-logos">
+
+
+                    <!-- =================================================
+                         LOGO 5
+                         FILE: public/images/verify/5.png
+                    ================================================== -->
+
+                    <img src="images/a0b48958f893afb6.png" alt="Logo 5" class="logo-img logo-5">
+
+
+
+                    <!-- =================================================
+                         LOGO 6
+                         FILE: public/images/verify/6.png
+                    ================================================== -->
+
+                    <img src="images/82c4ae9c47ffd6d9.png" alt="Logo 6" class="logo-img logo-6">
+
+
+
+                    <!-- =================================================
+                         LOGO 7
+                         FILE: public/images/verify/7.png
+                    ================================================== -->
+
+                    <img src="images/bdd0398154528db5.png" alt="Logo 7" class="logo-img logo-7">
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     LEFT SIDE
+                     LOGO 8
+                ================================================== -->
+
+                <div class="footer-left-logo">
+
+
+                    <!-- =================================================
+                         LOGO 8
+                         FILE: public/images/verify/8.png
+                    ================================================== -->
+
+                    <img src="images/d28919c6168f0ac8.png" alt="Logo 8" class="logo-img logo-8">
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+      
+
+
+    </footer>
+
+
+</div>
+
+
+
+<!-- Floating Chat Icon -->
+<div class="floating-chat-icon" title="الدعم" aria-label="الدعم" style="
+        position: fixed;
+        left: 18px;
+        bottom: 18px;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        box-shadow: none;
+    ">
+    <img src="images/c2390a0bde4d6779.png" alt="الدعم" style="
+            width: 96px;
+            height: 96px;
+            display: block;
+            object-fit: contain;
+            border-radius: 50%;
+        ">
+</div>
+
+
+<div class="verify-chat-widget" id="chatWidget">
+
+    <header class="verify-chat-header">
+        <div class="verify-chat-header-logo">
+            <img src="images/c2390a0bde4d6779.png" alt="المساعد">
+        </div>
+
+        <div class="verify-chat-header-title">
+            <div>مساعدك الافتراضي من اجير</div>
+            <small> </small>
+        </div>
+
+        <div class="verify-chat-header-actions">
+
+            <button type="button" class="verify-chat-header-action" id="closeBtn" title="إغلاق" aria-label="إغلاق">
+                <svg viewBox="0 0 320 512" aria-hidden="true">
+                    <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"></path>
+                </svg>
+            </button>
+
+            <button type="button" class="verify-chat-header-action" id="minimizeBtn" title="تصغير" aria-label="تصغير">
+                <svg viewBox="0 0 448 512" aria-hidden="true">
+                    <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"></path>
+                </svg>
+            </button>
+
+            <button type="button" class="verify-chat-header-action verify-chat-home" id="homeBtn" title="الرئيسية" aria-label="الرئيسية">
+                <svg viewBox="0 0 576 512" aria-hidden="true">
+                    <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4.1-2.8.1-4.2.1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2.1-2.4.2-3.6.2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"></path>
+                </svg>
+            </button>
+
+        </div>
+    </header>
+
+    <main class="verify-chat-messages" id="messageList">
+
+        <div class="verify-chat-message-wrapper">
+            <div class="verify-chat-bot-message">
+                مرحبًا، أنا مساعدك الافتراضي من اجير. يسرني خدمتك والإجابة عن استفساراتك 👍
+            </div>
+
+            <div class="verify-chat-message-meta">
+                <span class="message-time">الآن</span>
+                -
+                <span>bot</span>
+            </div>
+        </div>
+
+        <div class="verify-chat-message-wrapper">
+            <div class="verify-chat-bot-message">
+                يرجى اختيار إحدى الخدمات ليتم مساعدتك
+            </div>
+
+            <div class="verify-chat-message-meta">
+                <span class="message-time">الآن</span>
+                -
+                <span>bot</span>
+            </div>
+        </div>
+
+        <div class="verify-chat-services">
+
+            <div class="verify-chat-carousel">
+                <div class="verify-chat-carousel-track" id="carouselTrack" style="transform: translateX(0px);">
+
+                    <div class="verify-chat-service-wrapper">
+                        <div class="verify-chat-service-card">
+                            <div class="verify-chat-service-image">
+                                <img src="https://botbuilder.labiba.ai/maker/files/a9cca827-d373-4ceb-86fb-695ef1d0ac6a.png" alt="تعاقد أجير">
+                            </div>
+
+                            <div class="verify-chat-service-title">
+                                تعاقد أجير
+                            </div>
+
+                            <button type="button" class="verify-chat-service-button" data-service="تعاقد أجير">
+                                اختر
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="verify-chat-service-wrapper">
+                        <div class="verify-chat-service-card">
+                            <div class="verify-chat-service-image">
+                                <img src="https://botbuilder.labiba.ai/maker/files/83310804-130c-4b4b-b8fe-9ab31a6aa9bd.png" alt="خدمة التعاقد مع القوى العاملة">
+                            </div>
+
+                            <div class="verify-chat-service-title">
+                                خدمة التعاقد مع القوى العاملة
+                            </div>
+
+                            <button type="button" class="verify-chat-service-button" data-service="خدمة التعاقد مع القوى العاملة">
+                                اختر
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="verify-chat-service-wrapper">
+                        <div class="verify-chat-service-card">
+                            <div class="verify-chat-service-image">
+                                <img src="https://botbuilder.labiba.ai/maker/files/4b3c1c64-b637-43ce-90e1-023146214831.png" alt="خدمة التعاقد بين المنشآت">
+                            </div>
+
+                            <div class="verify-chat-service-title">
+                                خدمة التعاقد بين المنشآت
+                            </div>
+
+                            <button type="button" class="verify-chat-service-button" data-service="خدمة التعاقد بين المنشآت">
+                                اختر
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="verify-chat-service-wrapper">
+                        <div class="verify-chat-service-card">
+                            <div class="verify-chat-service-image">
+                                <img src="https://botbuilder.labiba.ai/maker/files/232c563d-d2e7-4ccf-ad18-e88a61341496.png" alt="باب أجير">
+                            </div>
+
+                            <div class="verify-chat-service-title">
+                                باب أجير
+                            </div>
+
+                            <button type="button" class="verify-chat-service-button" data-service="باب أجير">
+                                اختر
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="verify-chat-service-wrapper">
+                        <div class="verify-chat-service-card">
+                            <div class="verify-chat-service-image">
+                                <img src="https://botbuilder.labiba.ai/maker/files/f4ff8cf0-4c05-4bb2-8b3a-a0224819b9ce.png" alt="خدمات أخرى">
+                            </div>
+
+                            <div class="verify-chat-service-title">
+                                خدمات أخرى
+                            </div>
+
+                            <button type="button" class="verify-chat-service-button" data-service="خدمات أخرى">
+                                اختر
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="verify-chat-carousel-controls">
+
+                <button type="button" class="verify-chat-arrow" id="prevBtn" aria-label="السابق" disabled="">
+                    ‹
+                </button>
+
+                <div class="verify-chat-dots">
+                    <span class="verify-chat-dot active"></span>
+                    <span class="verify-chat-dot"></span>
+                    <span class="verify-chat-dot"></span>
+                </div>
+
+                <button type="button" class="verify-chat-arrow" id="nextBtn" aria-label="التالي">
+                    ›
+                </button>
+
+            </div>
+
+        </div>
+    </main>
+
+    <div class="verify-chat-composer">
+
+        <div class="verify-chat-input-area">
+            <textarea id="chatInput" maxlength="500" placeholder="اكتب رسالتك هنا" rows="1"></textarea>
+        </div>
+
+        <button type="button" class="verify-chat-composer-button" id="moreBtn" title="المزيد">
+            •••
+        </button>
+
+        <button type="button" class="verify-chat-composer-button" id="attachmentBtn" title="إرفاق ملف">
+            📎
+        </button>
+
+        <input type="file" id="fileInput" hidden="">
+
+        <button type="button" class="verify-chat-composer-button verify-chat-send" id="sendBtn" title="إرسال">
+            ➤
+        </button>
+
+    </div>
+
+</div>
+
+<script src="js/81509e24f46c03dc.js"></script>
+
+
+
+</body></html>
